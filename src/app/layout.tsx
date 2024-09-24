@@ -19,9 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${livvic.className} antialiased`}
-      >
+      <body className={`${livvic.className} antialiased bg-background`}>
         {children}
       </body>
     </html>
