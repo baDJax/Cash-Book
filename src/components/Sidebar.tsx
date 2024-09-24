@@ -1,6 +1,8 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import homeLogo from "#/home.png";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,7 +10,7 @@ const Sidebar = () => {
   return (
     <div className="flex">
       <div
-        className={`bg-background border-r-[0.5px] border-white/10 h-screen transition-all duration-300 z-10 ${
+        className={`bg-background fixed border-r-[0.5px] border-white/10 h-screen transition-all duration-300 z-10 ${
           isOpen ? "w-72" : "w-[88px] overflow-hidden"
         }`}
       >
@@ -50,18 +52,38 @@ const Sidebar = () => {
             </button>
           </div>
         </div>
-        <div className="flex flex-col flex-nowrap items-center">
+        <div className="flex flex-col flex-nowrap items-center px-3">
           <Link
             href="#"
-            className={`${isOpen ? 'justify-start gap-4' : 'justify-center'} flex transition-all py-4 px-5 w-full border-y-[0.5px] border-white/25 hover:text-gray-300`}
+            className={`${
+              isOpen ? "justify-start gap-4" : ""
+            } flex transition-all py-4 px-5 w-full bg-none rounded-xl hover:bg-gradient-to-bl from-gradient-red/50 to-gradient-blue/50`}
           >
-            🏠 <span className={`transition-all ${isOpen ? "w-auto opacity-100" : "w-0 opacity-0"}`}>Home</span>
+            <div className="h-[22px] w-[22px]">
+              <Image className="w-full h-auto" src={homeLogo} alt="home" />
+            </div>
+            <span
+              className={`transition-all ${
+                isOpen ? "w-auto opacity-100" : "w-0 opacity-0"
+              }`}
+            >
+              Home
+            </span>
           </Link>
           <Link
             href="#"
-            className={`${isOpen ? 'justify-start gap-4' : 'justify-center'} flex transition-all py-4 px-5 w-full border-b-[0.5px] border-white/25 hover:text-gray-300`}
+            className={`${
+              isOpen ? "justify-start gap-4" : ""
+            } flex transition-all py-4 px-5 w-full bg-none rounded-xl hover:bg-gradient-to-bl from-gradient-red/50 to-gradient-blue/50`}
           >
-            🔤 <span className={`transition-all ${isOpen ? "w-auto opacity-100" : "w-0 opacity-0"}`}>About</span>
+            🔤{" "}
+            <span
+              className={`transition-all ${
+                isOpen ? "w-auto opacity-100" : "w-0 opacity-0"
+              }`}
+            >
+              About
+            </span>
           </Link>
         </div>
       </div>
