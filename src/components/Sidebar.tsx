@@ -57,7 +57,7 @@ const Sidebar = () => {
             href="#"
             className={`${
               isOpen ? "justify-start gap-4" : ""
-            } flex transition-all py-4 px-5 w-full bg-none rounded-xl hover:bg-gradient-to-bl from-gradient-red/50 to-gradient-blue/50`}
+            } flex transition-all py-4 px-5 w-full rounded-xl bg-transparent hover:bg-gradient-to-bl to-gradient-red/50 from-gradient-blue/50`}
           >
             <div className="h-[22px] w-[22px]">
               <Image className="w-full h-auto" src={homeLogo} alt="home" />
@@ -70,11 +70,11 @@ const Sidebar = () => {
               Home
             </span>
           </Link>
-          <Link
+          {/* <Link
             href="#"
             className={`${
               isOpen ? "justify-start gap-4" : ""
-            } flex transition-all py-4 px-5 w-full bg-none rounded-xl hover:bg-gradient-to-bl from-gradient-red/50 to-gradient-blue/50`}
+            } flex transition-all py-4 px-5 w-full bg-transparent rounded-xl hover:bg-gradient-to-bl from-gradient-red/50 to-gradient-blue/50`}
           >
             🔤{" "}
             <span
@@ -84,7 +84,7 @@ const Sidebar = () => {
             >
               About
             </span>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>
