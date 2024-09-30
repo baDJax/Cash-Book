@@ -1,14 +1,15 @@
 import React from "react";
 import CashBoard from "./CashBoard";
 import CategorySlider from "./CategorySlider";
+import Graph from "./Graph";
 
 const Dashboard = () => {
   return (
-    <div className="ms-[88px] max-w-[856px]">
-      <div className="p-7">
-        <CashBoard />
-        <CategorySlider />
-      </div>
+    <div className="ms-[88px] grid grid-cols-3 gap-8 p-7">
+      <CashBoard />
+      <Graph />
+      <CategorySlider />
+      <Graph />
     </div>
   );
 };
