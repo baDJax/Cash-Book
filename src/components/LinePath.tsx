@@ -1,12 +1,7 @@
 "use client";
-//@ts-expect-error asdf
-import gsap from "gsap/all";
 import { useEffect, useRef } from "react";
 import ScrollMagic from "scrollmagic";
-import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 
-//@ts-expect-error asdf
-ScrollMagicPluginGsap(ScrollMagic, gsap);
 const LinePath = () => {
   const activePathRef = useRef<SVGPathElement | null>(null);
   const wrapRef = useRef<HTMLDivElement | null>(null);
@@ -23,11 +18,14 @@ const LinePath = () => {
 
         const scene = new ScrollMagic.Scene({
           triggerElement: wrapRef.current,
-          duration: 1000,
+          duration: "100%",
           triggerHook: 0.5,
         })
-          //@ts-expect-error asdf
-          .setTween(gsap.to(activePath, { strokeDashoffset: 0, ease: "none" }))
+          //@ts-expect-error assdf
+          .on("progress", (e: { progress: number }) => {
+            const drawLength = lineLength * e.progress;
+            activePath.style.strokeDashoffset = String(lineLength - drawLength);
+          })
           .addTo(controller);
 
         return () => {
