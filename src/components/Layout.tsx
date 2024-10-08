@@ -1,4 +1,6 @@
 "use client";
+import { client } from "@/graphql/apolloClient";
+import { ApolloProvider } from "@apollo/client";
 import Lenis from "lenis";
 import React, { useEffect } from "react";
 
@@ -12,7 +14,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     requestAnimationFrame(raf);
   }, []);
 
-  return <main>{children}</main>;
+  return (
+    <ApolloProvider client={client}>
+      <main>{children}</main>
+    </ApolloProvider>
+  );
 };
 
 export default Layout;
